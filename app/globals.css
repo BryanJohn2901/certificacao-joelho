@@ -1,0 +1,288 @@
+:root {
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --background-light: #fefcf6;
+  --foreground-dark: #171717;
+  
+  /* Paleta de cores premium - Vermelho */
+  --primary: #D00727;
+  --primary-dark: #a0001d;
+  --primary-glow: rgba(208, 7, 39, 0.4);
+  --accent: #ff3757;
+  --accent-glow: rgba(255, 55, 87, 0.3);
+  
+  /* Fontes Premium */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-impact: 'Bebas Neue', sans-serif;
+  
+  /* Gradientes */
+  --gradient-primary: linear-gradient(135deg, #D00727 0%, #ff3757 50%, #D00727 100%);
+  --gradient-dark: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+  --gradient-glow: radial-gradient(ellipse at center, var(--primary-glow) 0%, transparent 70%);
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Forçar que seções não criem scroll próprio */
+section {
+  overflow: hidden;
+}
+
+/* ========================================
+   BOTÃO PREMIUM COM EFEITO
+======================================== */
+.btn-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+  text-decoration: none;
+  animation: gradientShift 3s ease infinite, btnPulse 2s ease-in-out infinite;
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+.btn-premium:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 10px 40px var(--primary-glow),
+    0 0 60px var(--accent-glow);
+}
+
+.btn-premium:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes btnPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 var(--primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px var(--primary-glow);
+  }
+}
+
+/* ========================================
+   EFEITO DE BRILHO PARA CARDS
+======================================== */
+.glow-card {
+  position: relative;
+  background: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(208, 7, 39, 0.2);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 30px var(--primary-glow);
+}
+
+/* ========================================
+   TIPOGRAFIA PREMIUM
+======================================== */
+.title-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.title-impact {
+  font-family: var(--font-impact);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   ANIMAÇÕES UTILITÁRIAS
+======================================== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* ========================================
+   EFEITO DE TEXTO COM GRADIENTE
+======================================== */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   PULSO SUAVE
+======================================== */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 var(--primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 30px 10px var(--primary-glow);
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   EFEITO DE PARTÍCULAS DE FUNDO
+======================================== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ========================================
+   GSAP SCROLLTRIGGER FIX
+======================================== */
+.gsap-marker-start,
+.gsap-marker-end,
+.gsap-marker-scroller-start,
+.gsap-marker-scroller-end {
+  display: none !important;
+}
+
+[class*="pin-spacer"] {
+  pointer-events: none;
+}
+
+/* ========================================
+   ESCONDER SCROLLBARS EXTRAS
+======================================== */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+body > div:not([class]):not([id]) {
+  display: none !important;
+}
+
+[style*="position: fixed"][style*="right: 0"] {
+  display: none !important;
+}
+
+[style*="position:fixed"][style*="right:0"] {
+  display: none !important;
+}
+
+/* ========================================
+   SELEÇÃO DE TEXTO
+======================================== */
+::selection {
+  background: var(--primary);
+  color: #fff;
+}

@@ -1,0 +1,159 @@
+.certificacao-section {
+  background: linear-gradient(180deg, #fefcf6 0%, #f8f5ef 100%);
+  padding: 100px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.certificacao-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  width: 100%;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.certificacao-textos {
+  flex: 1;
+  min-width: 300px;
+  color: #171717;
+}
+
+.certificacao-textos h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.text-highlight {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.certificacao-subtitle {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--primary-dark);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.certificacao-textos p {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.5vw, 17px);
+  margin-bottom: 12px;
+  color: #444;
+  line-height: 1.7;
+}
+
+.certificacao-itens {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.certificacao-item {
+  background: linear-gradient(145deg, #0f0f0f 0%, #0a0a0a 100%);
+  color: white;
+  padding: 28px 24px;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
+}
+
+.certificacao-item:hover {
+  border-color: var(--primary);
+  box-shadow: 0 10px 40px rgba(208, 7, 39, 0.2);
+  transform: translateX(8px);
+}
+
+.check-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.check-icon {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.certificacao-item p {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* RESPONSIVO */
+@media (max-width: 960px) {
+  .certificacao-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .certificacao-textos {
+    text-align: center;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .certificacao-section {
+    padding: 60px 16px;
+  }
+  
+  .certificacao-textos h2 {
+    font-size: 26px;
+  }
+  
+  .certificacao-item {
+    padding: 20px;
+    font-size: 14px;
+  }
+  
+  .certificacao-item:hover {
+    transform: none;
+  }
+  
+  .check-icon-wrapper {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .check-icon {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificacao-section {
+    padding: 50px 12px;
+  }
+  
+  .certificacao-textos h2 {
+    font-size: 22px;
+  }
+  
+  .certificacao-item {
+    padding: 18px 16px;
+    font-size: 13px;
+    gap: 12px;
+  }
+}

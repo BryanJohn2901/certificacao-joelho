@@ -1,0 +1,260 @@
+.section {
+  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundGlow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 50%;
+  height: 600px;
+  background: radial-gradient(ellipse at center, var(--primary-glow) 0%, transparent 70%);
+  opacity: 0.1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.text {
+  flex: 1;
+  min-width: 300px;
+  color: #fff;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(208, 7, 39, 0.15);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text p {
+  font-size: clamp(15px, 1.5vw, 17px);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  background: rgba(208, 7, 39, 0.1);
+  border-color: var(--primary);
+  transform: translateY(-4px);
+}
+
+.statIcon {
+  color: var(--primary);
+  font-size: 24px;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-family: var(--font-impact);
+  font-size: 24px;
+  color: #fff;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+}
+
+.button {
+  font-size: 14px;
+  padding: 16px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnIcon {
+  font-size: 12px;
+}
+
+.imageWrapper {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+.imageGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, var(--primary-glow) 0%, transparent 70%);
+  filter: blur(60px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.imageBorder {
+  position: relative;
+  border-radius: 20px;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 960px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .text {
+    text-align: center;
+    min-width: auto;
+  }
+  
+  .badge {
+    margin: 0 auto 20px;
+  }
+  
+  .stats {
+    justify-content: center;
+  }
+  
+  .stat:hover {
+    transform: none;
+  }
+  
+  .button {
+    margin: 0 auto;
+  }
+  
+  .imageWrapper {
+    max-width: 400px;
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 16px;
+  }
+  
+  .title {
+    font-size: 26px;
+  }
+  
+  .text p {
+    font-size: 14px;
+  }
+  
+  .stats {
+    gap: 12px;
+  }
+  
+  .stat {
+    padding: 12px 14px;
+    flex: 1;
+    min-width: 140px;
+  }
+  
+  .statIcon {
+    font-size: 20px;
+  }
+  
+  .statNumber {
+    font-size: 20px;
+  }
+  
+  .statLabel {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 50px 12px;
+  }
+  
+  .title {
+    font-size: 22px;
+  }
+  
+  .stat {
+    padding: 10px 12px;
+    min-width: 100%;
+  }
+  
+  .button {
+    width: 100%;
+    justify-content: center;
+    font-size: 12px;
+    padding: 14px 20px;
+  }
+}
